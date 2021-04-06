@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>products</title>
+	<link rel="stylesheet"  href="../styles/csproduct.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        $("#InputSearch").on("keyup",function () {
+           var search_term=$(this).val()
+
+
+           $.ajax({
+            url:"product.php",
+            type:"post",
+            data:{
+                InputSearch:search_term 
+            },
+            success: function(data){
+                $("#table-data").html(data);
+
+            }
+
+           }) 
+                });
+    </script>
+<nav>
+	<style type="text/css">
+		* {
+    box-sizing: border-box;
+  
+    color: black;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    background: black;
+}
+.container{
+	background-color: white;
+}
+.shop-item-title {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.shop-item-image {
+    height: 250px;
+}
+
+.shop-item-details {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.shop-item-price {
+    flex-grow: 1;
+    color: #333;
+}
+
+.shop-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.cart-header {
+    font-weight: bold;
+    font-size: 1.25em;
+    color: #333;
+}
+
+.cart-column {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    margin-right: 1.5em;
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
+
+.cart-row {
+    display: flex;
+}
+
+.cart-item {
+    width: 45%;
+}
+
+.cart-price {
+    width: 20%;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.cart-quantity {
+    width: 35%;
+}
+
+.cart-item-title {
+    color: #333;
+    margin-left: .5em;
+    font-size: 1.2em;
+}
+
+.cart-item-image {
+    width: 75px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.btn-danger {
+    color: white;
+    width: 100px;
+    height: 30px;
+   background: linear-gradient(-135deg, red, black);
+    border: none;
+    border-radius: 1rem;
+    font-weight: bold;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(-135deg, red, black);
+}
+
+.cart-quantity-input {
+    height: 34px;
+    width: 50px;
+    border-radius: 5px;
+    border: 1px solid #56CCF2;
+    background-color: #eee;
+    color: #333;
+    padding: 0;
+    text-align: center;
+    font-size: 1.2em;
+    margin-right: 25px;
+}
+
+.cart-row:last-child {
+    border-bottom: 1px solid black;
+}
+
+.cart-row:last-child .cart-column {
+    border: none;
+}
+
+.cart-total {
+    text-align: end;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.cart-total-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: black;
+    margin-right: 20px;
+}
+
+.cart-total-price {
+    color: #333;
+    font-size: 1.1em;
+}
+
+.btn-purchase {
+    color: white;
+    display: block;
+    margin: 40px auto 80px auto;
+    border-radius: 24px;
+    font-size: 1.3em;
+    background: linear-gradient(-135deg, red, black);
+}
+
+	</style>
+		<img src="../images/mainlogo.jpg">
+		<label class="logo">Tabbib <sub>We Care</sub></label>
+
+		<ul>
+			
+				<li><a class="acive" href="#">Home</a></li>
+				<li><a href="#">About us</a></li>
+				<li><a href="#">Services</a></li>
+				<li><a href="login-page.html">LogOut</a></li>
+			
+		</ul>
+	</nav>
+
+       <div class="wrapper">
+      <div class="search-input">
+        <a href="" target="_blank" hidden></a>
+        <input id="InputSearch" type="text" placeholder="search medicine..">
+        <div id="table-data" class="autocom-box">
+          
+        </div>
+        <div class="icon">
+            <img src="../images/images.png"></div>
+      </div>
+    </div>
+
+    <div id="unfold" class="notfold">
+	<div id="product-name">
+
+		
+	</div>
+	<div class="product-design">
+	<select name="quantity" class="qty">
+		<option>box</option>
+		<option>piece</option>
+	</select>
+
+	<button id="pbtn" class="pbtn">+</button>
+ <button id="qbtn" class="qbtn">qty</button>
+	 <button id="mbtn" class="mbtn">-</button>
+
+<div>
+	<button id="add-to-cart" class="add-to-cart"><a href=""> add to cart </button></a>
+</div >
+</div>
+</div>
+<section class="container">
+            <h2 class="section-header">CART</h2>
+            <div class="cart-row">
+                <span class="cart-item cart-header cart-column">ITEM</span>
+                <span class="cart-price cart-header cart-column">PRICE</span>
+                
+                <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+            </div>
+            <div class="cart-items">
+                <div class="cart-row">
+                    <div class="cart-item cart-column">
+                        
+                        <span class="cart-item-title">panadol</span>
+                    </div>
+                    <span class="cart-price cart-column">19.99Rs</span>
+                    
+                    <div class="cart-quantity cart-column">
+                        <input class="cart-quantity-input" type="number" value="1">
+                        <button id="btn-danger" class="btn btn-danger" type="button">REMOVE</button>
+                    </div>
+                </div>
+                <div class="cart-row">
+                    <div class="cart-item cart-column">
+                        
+                        <span class="cart-item-title">Augemntin</span>
+                    </div>
+                    <span class="cart-price cart-column">9.99Rs</span>
+                     
+
+                    <div class="cart-quantity cart-column">
+                        <input class="cart-quantity-input" type="number" value="2">
+                        <button id="btn-danger" class="btn btn-danger" type="button">REMOVE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-total">
+                <strong class="cart-total-title">Total</strong>
+                <span class="cart-total-price">39.97Rs</span>
+            </div>
+            <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+        </section>
+<script type="text/javascript">
+
+		let btn = document.getElementById('qbtn')
+		let pbtn =document.getElementById('pbtn')
+		let mbtn =document.getElementById('mbtn')
+		let add =document.getElementById('add-to-cart')
+
+		
+
+		
+
+		btn.addEventListener('click',()=>{
+			btn.innerText=1;
+			pbtn.style.display='inline-block';
+			mbtn.style.display='inline-block';
+		}); 
+		mbtn.addEventListener('click',()=>{
+			btn.innerText=btn.innerText -1;
+			pbtn.style.display='inline-block';
+			mbtn.style.display='inline-block';
+		});
+		pbtn.addEventListener('click',()=>{
+			btn.innerText=parseInt(btn.innerText) +1;
+			pbtn.style.display='inline-block';
+			mbtn.style.display='inline-block';
+		});
+	
+	</script>
+	
+     <script src="../script/res-bar.js"></script>
+   <!--   <script src="../script/suggestions.js"></script> 
+     <script src="../script/jsCart.js"></script> -->
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tabbib</title>
+    <link rel="stylesheet" href="style.css">
+   <!-- <script defer src="../script/formprc.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">
+    Registration Form</div>
+    <div class="content">
+    <form  id="fupForm" name="myForm"   method="post">             
+    <div class="user-details">
+
+        <div class="input-box" >
+           <div class="details"> <label>Name:</label> </div> <input id="name" type="text" name="fname" required><div class="formerror"> </div>
+        </div>
+
+        <div class="input-box" >
+        <div class="details">   <label>email:</label> </div> <input id="email" type="email" name="femail" required><div class="formerror"> </div>
+        </div>
+
+        <div class="input-box" >
+         <div class="details"> <label>phone:</label> </div><input id="phone" type="phone" name="fphone" required><div class="formerror"></div>
+        </div>
+
+        <div class="input-box" >
+          <div class="details"><label>Password:</label> </div> <input id="password" type="password" name="fpass" required><div class="formerror"></div>
+        </div>
+
+        <div class="input-box" >
+        <div class="details"><label>Confirm Password:</label></div> <input id="CPassword" type="password" name="fcpass" required><div class="formerror"></div>
+       </div>
+   </div>
+      
+        <div class="button">
+          <input id="butsave" type="button" value="Register">
+        </div>
+        <div style="margin: auto;width: 60%;">
+    <div id="success" style="display:none;">
+      
+    </div>
+
+    </form>
+</div>
+</div>
+</body>
+<script>
+  
+    
+    
+
+$(document).ready(function() {
+    $('#butsave').on('click', function() {
+        
+        var name = $('#name').val();
+        var email = $('#email').val();
+        var phone = $('#phone').val();
+        var password = $('#password').val();
+        var CPassword = $('#CPassword').val();
+               
+            $.ajax({
+                url: "data.php",
+                type: "POST",
+                data: {
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    password:password,
+                    CPassword:CPassword            
+                },
+                cache: false,
+               
+                success: function(dataResult){
+                    var res = JSON.parse(dataResult);
+                    if(res.statusCode==200){
+                        alert("Register successfully!");
+                       location.reload();
+                                               
+                    }
+                    else if(res.statusCode==201){
+                       alert("Error occured !");
+                    }
+                    
+                }
+            });
+        
+       
+    });
+});
+  $("#fupForm").submit(function(e) {
+    e.preventDefault();
+});
+</script>
+
+</html>

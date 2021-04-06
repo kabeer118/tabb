@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabbib_inventory</title>
+    <link rel="stylesheet" href="C:\Users\jabba\OneDrive\Desktop\Demo 1\Admin\csv.css">
+  
+</head>
+<body>
+    
+    <nav>
+        <img src="C:\Users\jabba\OneDrive\Desktop\Demo 1\images\mainlogo.jpg">
+        <label class="logo">Tabbib <sub>We Care</sub></label>
+
+        <ul>
+            
+                <li><a class="acive" href="#">Home</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="C:\Users\jabba\OneDrive\Desktop\Demo 1\pages\login-page.html">LogOut</a></li>
+            
+        </ul>
+    </nav>
+<nav>
+    <img src="C:\Users\jabba\OneDrive\Desktop\Demo 1\images\mainlogo.jpg">
+    <label class="logo">Tabbib <sub>We Care</sub></label>
+
+    <ul>
+      
+        <li><a class="acive" href="#">Home</a></li>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="C:\Users\jabba\OneDrive\Desktop\Demo 1\pages\login-page.html">LogOut</a></li>
+      
+    </ul>
+  </nav>
+  <div class="wrapper">
+      <div class="title">
+ADD Inventory</div>
+<form id="form" action="product.html">
+        <div class="field">
+          <input id="username" name="name" type="email"  >
+          <label>product name</label>
+                   <div id="error"></div>
+          
+        </div>
+        <div class="field">
+          <input id="username" name="name" type="email"  >
+          <label>unit price</label>
+                   <div id="error"></div>
+          
+        </div>
+
+<div class="content">
+          <div class="checkbox">
+            <select name="cars" id="cars">
+  <option value="volvo">box</option>
+  <option value="saab">stripes</option>
+  <option value="bottle">bottle</option>
+  
+</select>
+          </div>
+<div class="pass-link">
+<button class="pbtn">+</button></div>
+<button class="pbtn">QTY</button>
+<button class="mbtn">-</button>
+</div>
+<div class="field">
+          <input type="submit" value="ADD">
+        </div>
+
+</form>
+
+
+</body>
+<script type="text/javascript">
+  var form = document.getElementById('form');
+  form.addEventListener('click',(e)=>{
+    e.preventDefault();
+  })
+</script>
+</html>

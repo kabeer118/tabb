@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabbib_Admin</title>
+    <link rel="stylesheet" href="C:\Users\jabba\OneDrive\Desktop\Demo 1\Admin\csv.css">
+  
+</head>
+<body>
+    
+    <nav>
+        <img src="C:\Users\jabba\OneDrive\Desktop\Demo 1\images\mainlogo.jpg">
+        <label class="logo">Tabbib<sub>We Care</sub></label>
+
+        <ul>
+            
+                <li><a class="acive" href="#">Home</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="C:\Users\jabba\OneDrive\Desktop\Demo 1\pages\login-page.html">LogOut</a></li>
+            
+        </ul>
+    </nav>
+    <div class="wrapper">
+      <div class="title">
+Admin Panel</div>
+<form id="form" >
+<div class="field">
+          <input id="INVENTORY" type="submit" value="Inventory">
+        </div>
+        <div class="field">
+          <input id="Tabbib_Billing" type="submit" value="Tabbib Billing">
+        </div>
+<div class="field">
+          <input id="CSV" type="submit" value="CSV generate">
+        </div>
+
+</form>
+
+
+
+</body>
+<script type="text/javascript">
+  var form = document.getElementById('form');
+  form.addEventListener('click',(e)=>{
+    e.preventDefault();
+  })
+  var Invent = document.getElementById('INVENTORY');
+       Invent.addEventListener('click',()=>{
+    window.location.href = "file:///C:/Users/jabba/OneDrive/Desktop/Demo%201/admin/inventory.html";
+console.log('click')
+ })
+       var billing = document.getElementById('Tabbib_Billing');
+       billing.addEventListener('click',()=>{
+    window.location.href = "file:///C:/Users/jabba/OneDrive/Desktop/Demo%201/admin/tabbib_billing.html";
+console.log('click')
+ })
+           var CSV = document.getElementById('CSV');
+       CSV.addEventListener('click',()=>{
+    window.location.href = "file:///C:/Users/jabba/OneDrive/Desktop/Demo%201/admin/csv.html";
+console.log('click')
+ })
+
+</script>
+</html>
